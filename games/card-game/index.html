@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/f26a888174.js" crossorigin="anonymous"></script>
+  <title>Card Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div  id="loader" class="loader">
+  <div class="heart"></div>
+  <h1>uite gusti, <span>LAS VEGAS!</span></h1>
+</div>
+<div id="playerMenu" class="player-menu">
+  <div class="player-card">
+    <h2>Cine decide? 😏</h2>
+
+    <div class="player-buttons">
+  <button id="chooseHe" class="btn he" data-tip="EL începe">
+    <i class="fa-solid fa-mars"></i>
+  </button>
+
+  <button id="chooseShe" class="btn she" data-tip="EA începe">
+    <i class="fa-solid fa-venus"></i>
+  </button>
+</div>
+
+
+  </div>
+</div>
+<div id="resetConfirm" class="reset-confirm hidden">
+  <div class="reset-box">
+    <p id="resetText">Sigur vrei să resetezi scorul? 😏</p>
+    <div class="reset-actions">
+      <button id="confirmReset" class="yes">DA 🔥</button>
+      <button id="cancelReset" class="no">NU 🙈</button>
+    </div>
+  </div>
+</div>
+
+
+<h1>CAMERA<span>SECRETELOR</span></h1>
+<div id="board"></div>
+<div class="control-dock">
+
+  <!-- BACK TO MENU -->
+  <button class="back-menu" data-tip="Meniu" onclick="location.href='../../index.html'">
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+
+  <!-- SWITCH PLAYER -->
+  <button id="switchPlayer" data-tip="Schimbă jucătorul">
+    <i class="fa-solid fa-arrows-rotate"></i>
+  </button>
+
+  <!-- RANDOM CARD -->
+  <button id="randomCard" data-tip="Carte aleatorie">
+    <i class="fa-solid fa-shuffle"></i>
+  </button>
+
+  <!-- SHUFFLE / RESET ROUND -->
+ <button id="reset" data-tip="Amestecă cărțile">
+  <i class="fa-solid fa-layer-group"></i>
+</button>
+
+
+  <!-- RESET SCORE -->
+  <button id="resetScore" data-tip="Reset scor">
+    <i class="fa-solid fa-broom"></i>
+  </button>
+
+</div>
+
+
+
+<div id="overlay" class="overlay hidden">
+  <div class="overlay-content">
+    <button id="closeOverlay">❌</button>
+    <img id="overlay-img" src="" alt="Imagine card">
+    <p id="overlay-text"></p>
+  </div>
+</div>
+<div id="switchMessage" class="switch-message"></div>
+
+<div id="scoreBoard">
+  <div class="score-item he">
+    <span class="label">
+      <i class="fa-solid fa-mars"></i>
+    </span>
+    <span id="scoreHe">0</span>
+  </div>
+
+  <div class="score-item she">
+    <span class="label">
+      <i class="fa-solid fa-venus"></i>
+    </span>
+    <span id="scoreShe">0</span>
+  </div>
+</div>
+
+
+
+<div id="thankPopup" class="thank-popup hidden">
+🫣hmm..😏buna alegere!
+</div>
+
+<div id="endPanel" class="end-panel hidden">
+  <div class="end-box">
+    <h2>🔥 Uraa.! 🔥</h2>
+    <p>Toate cărțile au fost jucate 😏</p>
+    <button id="restartGame">🔁 Reîncepe jocul</button>
+  </div>
+</div>
+
+
+
+<script src="app.js"></script>
+</body>
+</html>
