@@ -1,34 +1,42 @@
 * { box-sizing: border-box; }
 
 body {
-  background: radial-gradient(circle at top, #ff5c5c, #1a1a1a);
+  background:
+    radial-gradient(circle at top, rgba(255,92,92,.35), transparent 55%),
+    radial-gradient(circle at bottom, rgba(255,158,232,.15), transparent 60%),
+    linear-gradient(180deg, #0f0f0f, #1a1a1a);
   color: white;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   min-height: 100vh;
   text-align: center;
   padding-top: 80px;
 }
 
-/* DOCK */
-.control-dock {
-  position: fixed;
-  left: 12px;
-  top: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
 
+/* DOCK */
 .control-dock button {
   width: 48px;
   height: 48px;
   border-radius: 50%;
   border: none;
-  background: rgba(20,20,20,0.85);
+  background: rgba(20,20,20,0.75);
+  backdrop-filter: blur(8px);
   color: #ff9ee8;
   font-size: 1.3rem;
   cursor: pointer;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.05),
+    0 8px 20px rgba(0,0,0,.6);
+  transition: transform .25s ease, box-shadow .25s ease;
 }
+
+.control-dock button:hover {
+  transform: scale(1.12);
+  box-shadow:
+    0 0 25px rgba(255,92,92,.6),
+    0 0 0 1px rgba(255,92,92,.4);
+}
+
 
 /* SCORE */
 #scoreBoard {
@@ -41,50 +49,96 @@ body {
 }
 
 .score-item {
-  width: 56px;
-  height: 56px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: rgba(20,20,20,0.85);
+  background: rgba(15,15,15,.75);
+  backdrop-filter: blur(8px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-weight: bold;
+  font-weight: 700;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.06),
+    0 10px 30px rgba(0,0,0,.6);
 }
 
-.score-item.he { color: #ff7f7f; }
-.score-item.she { color: #ff9ee8; }
+.score-item.he {
+  color: #ff7f7f;
+  text-shadow: 0 0 12px rgba(255,127,127,.6);
+}
+
+.score-item.she {
+  color: #ff9ee8;
+  text-shadow: 0 0 12px rgba(255,158,232,.6);
+}
 
 /* BOARD */
 .board {
-  width: 300px;
-  height: 300px;
+  width: 320px;
+  height: 320px;
   margin: 40px auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: 14px;
+  padding: 14px;
+  border-radius: 26px;
+  background: rgba(0,0,0,.35);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.05),
+    0 30px 80px rgba(0,0,0,.8);
 }
 
+
 .cell {
-  background: rgba(20,20,20,0.85);
-  border-radius: 16px;
-  font-size: 3rem;
+  background: rgba(20,20,20,0.8);
+  border-radius: 18px;
+  font-size: 3.2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 0 20px rgba(255,92,92,.4);
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.04),
+    0 0 20px rgba(255,92,92,.25);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
-.cell.he { color: #ff7f7f; }
-.cell.she { color: #ff9ee8; }
-.cell.used { pointer-events: none; }
+.cell:hover {
+  transform: scale(1.08);
+  box-shadow:
+    0 0 30px rgba(255,92,92,.6);
+}
+
+.cell.he {
+  color: #ff7f7f;
+  text-shadow: 0 0 18px rgba(255,127,127,.7);
+}
+
+.cell.she {
+  color: #ff9ee8;
+  text-shadow: 0 0 18px rgba(255,158,232,.7);
+}
+
+.cell.used {
+  pointer-events: none;
+  animation: pop .25s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(.85); }
+  100% { transform: scale(1); }
+}
+
 
 /* STATUS */
 .status {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: #ffb3b3;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  text-shadow: 0 0 12px rgba(255,92,92,.5);
 }
 
 /* BUTTON */
@@ -102,18 +156,21 @@ body {
 
 /* GIFT BOX */
 .gift-box {
-  width: 120px;
-  height: 120px;
-  margin: 30px auto;
-  border-radius: 24px;
-  background: linear-gradient(135deg, #ff5c5c, #ff9ee8);
+  width: 130px;
+  height: 130px;
+  margin: 35px auto;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top, #ffd700, #ff5c5c 70%);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 3rem;
+  font-size: 3.6rem;
   cursor: pointer;
-  box-shadow: 0 0 40px rgba(255,92,92,.8);
-  animation: pulse 1.8s infinite;
+  box-shadow:
+    0 0 30px gold,
+    0 0 80px rgba(255,215,0,.6);
+  animation: pulse 1.6s infinite;
 }
 
 @keyframes pulse {
@@ -134,10 +191,12 @@ body {
 .overlay.hidden { display: none; }
 
 .overlay-box {
-  background: #1a1a1a;
-  padding: 30px 40px;
-  border-radius: 24px;
-  box-shadow: 0 0 40px rgba(255,92,92,.7);
+  background: rgba(15,15,15,.95);
+  backdrop-filter: blur(12px);
+  padding: 32px 42px;
+  border-radius: 26px;
+  box-shadow:
+    0 0 60px rgba(255,92,92,.8);
 }
 
 .overlay-box p {
