@@ -145,6 +145,8 @@ function renderBoard(data = cardsData) {
 
       saveStats(stats);
       updateScore();
+      // 🌍 GLOBAL STATS (CARD GAME)
+      addGlobalPoint(currentPlayer, "card");
 
       card.dataset.opened = "true";
       card.classList.add("flipped", currentPlayer);

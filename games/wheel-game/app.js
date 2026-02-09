@@ -119,6 +119,12 @@ iconsContainer.style.transform = `rotate(${currentRotation}deg)`;
     currentPlayer === "he" ? stats.he++ : stats.she++;
     saveStats(stats);
     updateScore();
+    
+  // 🌍 GLOBAL STATS (ADAUGARE)
+  if (typeof addGlobalPoint === "function") {
+    addGlobalPoint(currentPlayer, "wheel");
+  }
+
 
     spinning = false;
     spinBtn.disabled = false;
@@ -139,17 +145,6 @@ switchBtn.onclick = () => {
 /***********************
  * INIT
  ***********************/
-window.addEventListener("load", () => {
-  buildWheel();
-  updateScore();
-
-  switchBtn.innerHTML =
-    currentPlayer === "he"
-      ? '<i class="fa-solid fa-mars"></i>'
-      : '<i class="fa-solid fa-venus"></i>';
-});
-
-
 window.addEventListener("load", () => {
   // init wheel
   buildWheel();

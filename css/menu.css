@@ -44,3 +44,41 @@ h1 {
   font-size: 3rem;
   margin-bottom: 15px;
 }
+
+.global-score {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.global-score .score {
+  background: rgba(0,0,0,0.6);
+  border-radius: 999px;
+  padding: 12px 22px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.global-score .he { color: #ff7f7f; }
+.global-score .she { color: #ff9ee8; }
+
+/* BIG BOX */
+.big-box {
+  width: 140px;
+  height: 140px;
+  margin: 30px auto;
+  border-radius: 30px;
+  background: linear-gradient(135deg, gold, #ff5c5c);
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 60px gold;
+  animation: pulse 1.8s infinite;
+}
+
+.big-box.hidden {
+  display: none;
+}

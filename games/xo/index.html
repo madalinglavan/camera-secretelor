@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>❌⭕ XO – Lover’s Edition</title>
+
+  <script src="https://kit.fontawesome.com/f26a888174.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- CONTROL DOCK -->
+<div class="control-dock">
+  <button onclick="location.href='../../index.html'">
+    <i class="fa-solid fa-arrow-left"></i>
+  </button>
+
+  <button id="switchPlayer">
+    <i class="fa-solid fa-mars"></i>
+  </button>
+
+  <button id="resetScore" title="Reset scor">
+    <i class="fa-solid fa-broom"></i>
+  </button>
+</div>
+
+<h1>❌⭕</h1>
+
+<!-- SCORE -->
+<div id="scoreBoard">
+  <div class="score-item he">
+    <i class="fa-solid fa-mars"></i>
+    <span id="scoreHe">0</span>
+  </div>
+  <div class="score-item she">
+    <i class="fa-solid fa-venus"></i>
+    <span id="scoreShe">0</span>
+  </div>
+</div>
+
+<!-- BOARD -->
+<div id="board" class="board"></div>
+
+<div id="status" class="status">Rândul LUI</div>
+
+<button id="restartBtn" class="restart hidden">🔁 Joc nou</button>
+
+<!-- GIFT BOX (ASCUNS INIT) -->
+<div id="giftBox" class="gift-box hidden">🎁</div>
+
+<!-- OVERLAY -->
+<div id="overlay" class="overlay hidden">
+  <div class="overlay-box">
+    <p id="overlayText"></p>
+    <button id="closeOverlay">OK</button>
+  </div>
+</div>
+<script src="../../js/globalstats.js"></script>
+<script src="app.js"></script>
+
+
+</body>
+</html>

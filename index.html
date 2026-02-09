@@ -4,12 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>🔥 Love Games 🔥</title>
+
   <link rel="stylesheet" href="css/menu.css">
 </head>
 <body>
 
 <h1>🔥 Love Games 🔥</h1>
 <p class="subtitle">Alege cum jucăm azi 😏</p>
+
+<!-- GLOBAL SCORE -->
+<div class="global-score">
+  <div class="score he">♂ <span id="globalHe">0</span></div>
+  <div class="score she">♀ <span id="globalShe">0</span></div>
+</div>
+
+<!-- BIG BOX -->
+<div id="bigBox" class="big-box hidden">🎁</div>
 
 <div class="games-grid">
 
@@ -25,7 +35,25 @@
     <p>Roata decide soarta</p>
   </a>
 
+  <a href="games/xo/index.html" class="game-card">
+    <div class="icon">❌⭕</div>
+    <h2>XO – Lover’s Game</h2>
+    <p>Câștigă și primește un cadou 😏</p>
+  </a>
+
 </div>
+
+<!-- OVERLAY -->
+<div id="overlay" class="overlay hidden">
+  <div class="overlay-box">
+    <p id="overlayText"></p>
+    <button id="closeOverlay">OK</button>
+  </div>
+</div>
+
+<!-- ⚠️ DOAR ASTEA -->
+<script src="../../js/globalstats.js"></script>
+<script src="js/menu.js"></script>
 
 </body>
 </html>
