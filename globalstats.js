@@ -88,3 +88,7 @@ const BIG_GIFTS = [
 function getRandomBigGift() {
   return BIG_GIFTS[Math.floor(Math.random() * BIG_GIFTS.length)];
 }
+
+/*************************
+ * end GLOBAL STATS MANAGER
+ *************************/
