@@ -216,7 +216,13 @@ randomBtn.onclick = () => {
 
 resetBtn.onclick = () => {
   if (isUIBlocked()) return;
+
   renderBoard(shuffleArray(cardsData));
+
+  showThankPopup(
+    "🃏 Cărțile au fost amestecate...",
+    2000
+  );
 };
 
 const resetMessages = [
@@ -244,10 +250,38 @@ cancelReset.onclick = () => resetConfirm.classList.add("hidden");
 /***********************
  * SWITCH PLAYER
  ***********************/
-const switchMessages = {
-  he: ["😏 EL preia controlul", "🎩 Gentleman mode"],
-  she: ["💃 EA conduce", "💄 Queen mode"]
-};
+function getSwitchMessages() {
+  const names = getCoupleNames();
+
+  return {
+    he: [
+      "😏 " + names.he + " preia controlul... pregătește-te!",
+      "🎩 Gentleman mode activat pentru " + names.he,
+      "🔥 Acum conduce " + names.he + " — fără milă!",
+      "👑 Regele tablei este " + names.he,
+      "💪 " + names.he + " vine cu strategia secretă",
+      "😈 Atenție! " + names.he + " joacă periculos",
+      "🕶️ Mod misterios activat pentru " + names.he,
+      "⚡ Energia s-a schimbat… acum domină " + names.he,
+      "🍷 " + names.he + " a zâmbit. E semn rău.",
+      "🎯 Ținta e clară. " + names.he + " atacă."
+    ],
+
+    she: [
+      "💃 " + names.she + " conduce acum. Respirați adânc.",
+      "💄 Queen mode activat pentru " + names.she,
+      "✨ Acum decide " + names.she + " — și decide bine!",
+      "👑 Regina jocului este " + names.she,
+      "🔥 " + names.she + " intră în forță!",
+      "😈 Atenție! " + names.she + " are planuri ascunse",
+      "💋 Zâmbetul lui " + names.she + " e suspect...",
+      "🎀 Eleganță și strategie: " + names.she,
+      "⚡ Atmosfera s-a schimbat. " + names.she + " domină.",
+      "🖤 Pericol dulce: " + names.she + " mută."
+    ]
+  };
+}
+
 
 switchBtn.onclick = () => {
   if (!currentPlayer || isUIBlocked()) return;
@@ -257,13 +291,16 @@ switchBtn.onclick = () => {
     ? '<i class="fa-solid fa-mars"></i>'
     : '<i class="fa-solid fa-venus"></i>';
 
-  const msg =
-    switchMessages[currentPlayer][
-      Math.floor(Math.random() * switchMessages[currentPlayer].length)
-    ];
+ const switchMessages = getSwitchMessages();
+
+const msg =
+  switchMessages[currentPlayer][
+    Math.floor(Math.random() * switchMessages[currentPlayer].length)
+  ];
+
   switchMessage.textContent = msg;
   switchMessage.classList.add("show");
-  setTimeout(() => switchMessage.classList.remove("show"), 1300);
+  setTimeout(() => switchMessage.classList.remove("show"), 3000);
 };
 
 /***********************

@@ -92,3 +92,38 @@ function getRandomBigGift() {
 /*************************
  * end GLOBAL STATS MANAGER
  *************************/
+
+
+/*************************
+ * COUPLE NAMES
+ *************************/
+
+const NAMES_KEY = "coupleNames";
+
+function getCoupleNames() {
+  const raw = localStorage.getItem(NAMES_KEY);
+  if (!raw) {
+    return { he: "EL", she: "EA" };
+  }
+  return JSON.parse(raw);
+}
+
+function saveCoupleNames(heName, sheName) {
+  localStorage.setItem(NAMES_KEY, JSON.stringify({
+    he: heName || "EL",
+    she: sheName || "EA"
+  }));
+}
+
+function updateGlobalNames() {
+  const names = getCoupleNames();
+  const stats = getGlobalStats();
+
+  const heBox = document.querySelector(".score.he");
+  const sheBox = document.querySelector(".score.she");
+
+  if (!heBox || !sheBox) return;
+
+  heBox.innerHTML = `${names.he} <span id="globalHe">${stats.he.score}</span>`;
+  sheBox.innerHTML = `${names.she} <span id="globalShe">${stats.she.score}</span>`;
+}

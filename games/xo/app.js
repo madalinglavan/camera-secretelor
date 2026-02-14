@@ -84,10 +84,13 @@ function init() {
   updateStatus();
   updateScore();
 }
-
 function updateStatus() {
+  const names = getCoupleNames();
+
   statusEl.textContent =
-    currentPlayer === "he" ? "Rândul LUI" : "Rândul EI";
+    currentPlayer === "he"
+      ? "Rândul lui " + names.he
+      : "Rândul ei " + names.she;
 }
 
 /***********************
@@ -124,16 +127,13 @@ function handleMove(e) {
   updateStatus();
 }
 
-/***********************
- * WIN HANDLER
- ***********************/
 function handleWin() {
   gameActive = false;
 
-  statusEl.textContent =
-    currentPlayer === "he"
-      ? "🎉 Felicitări! EL a câștigat!"
-      : "🎉 Felicitări! EA a câștigat!";
+  const { he, she } = getCoupleNames();
+  const winnerName = currentPlayer === "he" ? he : she;
+
+  statusEl.textContent = `🎉 Felicitări ${winnerName}!`;
 
   const stats = getStats();
   currentPlayer === "he" ? stats.he++ : stats.she++;
@@ -142,7 +142,6 @@ function handleWin() {
 
   launchConfetti();
 
-  // 🎁 APARE DUPĂ CONFETTI (cinematic)
   setTimeout(() => {
     giftBox.style.display = "flex";
     giftBox.classList.remove("hidden");
@@ -150,6 +149,7 @@ function handleWin() {
 
   restartBtn.classList.remove("hidden");
 }
+
 
 /***********************
  * WIN CHECK
